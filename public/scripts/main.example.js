@@ -14,4 +14,17 @@ console.log(params);
  * */
 const app = new App();
 
-app.init().then(app.run);
+app.loadButton.addEventListener('click', function() {
+    const tipeDriver = app.tipeDriver.value;
+    const jumlahPenumpang = app.jumlahPenumpang.value;
+    
+    if (jumlahPenumpang > 0 && tipeDriver) {
+        app.clear();
+        app.load(jumlahPenumpang).then(app.run);
+    }
+    
+})
+
+app.clearButton.addEventListener('click', function () {
+    app.clear();
+})
